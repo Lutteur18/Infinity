@@ -4,9 +4,43 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Infinity Tanks | Water Storage Solutions</title>
+  <meta name="description" content="Infinity Tanks offers compact, stylish, and reliable water storage solutions for homes and businesses with limited space.">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css"> <!-- Added this line -->
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    @media (max-width: 600px) {
+      .problem-list, .faq-list {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      .problem-card, .feature {
+        max-width: 100%;
+        padding: 1rem;
+      }
+    }
+    .faq-list-compact {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      max-width: 600px;
+    }
+    .faq-list-compact li {
+      margin-bottom: 1rem;
+      background: #f7f9fa;
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      font-size: 1rem;
+      text-align: left;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .faq-list-compact strong {
+      color: #1a3d5d;
+    }
+    .problems-solutions h2 {
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -14,7 +48,8 @@
     <img src="./Assets/Inverse_Portrait.png" alt="Infinity Tanks Logo" style="max-width:180px; margin-bottom:1rem;" />
     <h1>Infinity Tanks</h1>
     <nav>
-      <a href="#features">Features</a>
+      <a href="#problems-solutions">Solutions</a>
+      <a href="tanks.html">Tanks</a>
       <a href="#contact">Contact</a>
     </nav>
   </header>
@@ -22,27 +57,30 @@
     <section class="hero">
       <h2>Space-Saving Water Storage Solutions</h2>
       <p>Compact, durable, and reliable water tanks—perfect for homes and businesses with limited space. Never be caught without water again.</p>
-      <div class="cta-btn-group">
-        <a href="#contact" class="cta-btn">Find Your Perfect Fit</a>
-        <a href="tanks.html" class="cta-btn secondary-btn">View Our Tanks</a>
-      </div>
-      <img src="./Assets/IMG_2534 (1).jpg" alt="Compact water tank fitting in a small space" style="max-width:220px; margin:1.5rem auto; display:block;">
     </section>
-    <section class="features" id="features">
-      <h2>Features</h2>
-      <div class="feature">
-        <h3>Compact Designs</h3>
-        <img src="./Assets/IMG-20220707-WA0014.jpg" alt="1600L slim water tank, ideal for compact spaces" style="max-width:100%; height:auto; margin-bottom:1rem;">
-        <p>Our tanks are engineered to fit tight spaces—ideal for small yards, patios, and urban environments.</p>
-      </div>
-      <div class="feature">
-        <h3>Flexible Sizes</h3>
-        <img src="./Assets/Patio Pots Total Set.png" alt="Various slim and vertical water tanks in different sizes and colors" style="max-width:100%; height:auto; margin-bottom:1rem;">
-        <p>Choose from a range of slim and vertical tanks, from 500L to 10,000L, to suit your available space.</p>
-      </div>
-      <div class="feature">
-        <h3>Easy Installation</h3>
-        <p>Quick and hassle-free setup, even in confined areas. We deliver and install nationwide.</p>
+    <section class="problems-solutions" id="problems-solutions">
+      <h2 style="text-align:center;">Find Your Water Storage Solution</h2>
+      <div class="problem-list">
+        <div class="problem-card">
+          <h3>Limited Space?</h3>
+          <p>Our compact tanks fit perfectly in small yards, next to walls, or in tight spaces.</p>
+          <a href="tanks.html#compact" class="cta-btn">See Compact Tanks</a>
+        </div>
+        <div class="problem-card">
+          <h3>Want a Stylish Tank?</h3>
+          <p>Choose from our decorative barrel tanks that blend beautifully with your garden or patio.</p>
+          <a href="tanks.html#barrel" class="cta-btn">See Decorative Tanks</a>
+        </div>
+        <div class="problem-card">
+          <h3>Need Maximum Capacity?</h3>
+          <p>Our large vertical tanks are ideal for businesses or homes needing serious storage.</p>
+          <a href="tanks.html#large" class="cta-btn">See Large Tanks</a>
+        </div>
+        <div class="problem-card">
+          <h3>Harvest Rainwater?</h3>
+          <p>All our tanks are perfect for rainwater harvesting and easy to connect to your gutters.</p>
+          <a href="tanks.html#rainwater" class="cta-btn">See Rainwater Solutions</a>
+        </div>
       </div>
     </section>
     <section class="contact" id="contact">
@@ -59,36 +97,61 @@
         <div id="form-status" aria-live="polite"></div>
       </form>
     </section>
-    <section class="faq" id="faq" style="background:#fff; padding:2rem 1rem;">
+    <section class="faq" id="faq">
       <h2>Frequently Asked Questions</h2>
-      <div class="feature">
-        <h3>Can I install a tank if I have a small yard?</h3>
-        <p>Yes! Our slim and vertical tanks are designed for tight spaces and can fit alongside walls or in corners.</p>
-      </div>
-      <div class="feature">
-        <h3>Do you offer installation advice?</h3>
-        <p>Absolutely. Our team will help you choose the best tank and provide installation tips for your unique space.</p>
-      </div>
-      <div class="feature">
-        <h3>What sizes are available?</h3>
-        <p>We offer tanks from 500L to 10,000L, including compact models for small spaces and larger options for greater storage needs.</p>
-      </div>
-      <div class="feature">
-        <h3>Are your tanks UV resistant?</h3>
-        <p>Yes, all our tanks are made from UV-resistant, food-grade polyethylene to ensure long-lasting durability in the sun.</p>
-      </div>
-      <div class="feature">
-        <h3>Do you deliver and install nationwide?</h3>
-        <p>We deliver and install tanks across South Africa, making it easy for you to get set up wherever you are.</p>
-      </div>
-      <div class="feature">
-        <h3>Can I use your tanks for rainwater harvesting?</h3>
-        <p>Yes, our tanks are perfect for rainwater harvesting and can be easily connected to your gutter system.</p>
-      </div>
+      <ul class="faq-list-compact">
+        <li>
+          <strong>Can I install a tank if I have a small yard?</strong>
+          <br>Yes! Our compact tanks are designed for tight spaces.
+        </li>
+        <li>
+          <strong>Do you offer installation advice?</strong>
+          <br>Yes, our team will guide you through the process.
+        </li>
+        <li>
+          <strong>What sizes are available?</strong>
+          <br>From 500L to 10,000L, including compact and large options.
+        </li>
+        <li>
+          <strong>Are your tanks UV resistant?</strong>
+          <br>Yes, all tanks are made from UV-resistant, food-grade polyethylene.
+        </li>
+        <li>
+          <strong>Do you deliver and install nationwide?</strong>
+          <br>Yes, we deliver and install across South Africa.
+        </li>
+        <li>
+          <strong>Can I use your tanks for rainwater harvesting?</strong>
+          <br>Absolutely! All tanks are suitable for rainwater harvesting.
+        </li>
+      </ul>
+    </section>
+    <section class="faq-submit" style="background:#f7f9fa; padding:2rem 1rem; text-align:center;">
+      <h2>Have a Question?</h2>
+      <p>Ask your question below and we'll get back to you soon!</p>
+      <form id="faq-form" style="max-width:400px; margin:0 auto;">
+        <label for="faq-name" style="display:block; text-align:left; margin-bottom:0.5rem;">Your Name</label>
+        <input type="text" id="faq-name" name="faq-name" required style="width:100%; padding:0.5rem; margin-bottom:1rem;">
+        <label for="faq-question" style="display:block; text-align:left; margin-bottom:0.5rem;">Your Question</label>
+        <textarea id="faq-question" name="faq-question" rows="3" required style="width:100%; padding:0.5rem; margin-bottom:1rem;"></textarea>
+        <button type="submit" class="cta-btn">Submit Question</button>
+        <div id="faq-form-status" aria-live="polite" style="margin-top:1rem;"></div>
+      </form>
     </section>
   </main>
   <footer>
     &copy; 2025 Infinity Tanks. All rights reserved.
+    <nav>
+      <a href="index.html">Home</a> |
+      <a href="tanks.html">Tanks</a> |
+      <a href="#contact">Contact</a>
+    </nav>
   </footer>
+  <script src="main.js"></script>
+  <script>
+    // Place your additional JavaScript code here
+  </script>
 </body>
 </html>
+
+
