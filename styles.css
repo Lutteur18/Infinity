@@ -9,6 +9,7 @@ header {
   color: #fff;
   padding: 2rem 0 1rem 0;
   text-align: center;
+  border-bottom: 4px solid #ffb84d;
 }
 header img {
   max-width: 180px;
@@ -22,27 +23,22 @@ nav a {
   text-decoration: none;
   margin: 0 1rem;
   font-weight: 500;
-  transition: color 0.2s;
+  transition: color 0.2s, background 0.3s;
   padding: 8px 12px;
   border-radius: 4px;
 }
-nav a:hover {
-  color: #ffd700;
+nav a:hover, nav a:focus {
+  color: #1a3d5d;
+  background: #ffb84d;
 }
 .hero {
   padding: 3rem 1rem 2rem 1rem;
   text-align: center;
   background: #eaf1f7;
+  border-bottom: 4px solid #ffb84d;
+  transition: background 0.5s;
 }
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  color: #1a3d5d;
-}
-.hero p, .feature p {
-  color: #222; /* Darker for better contrast */
-}
-.cta-btn {
+.cta-btn, .cta-btn.secondary-btn {
   background: #ffd700;
   color: #1a3d5d;
   padding: 1rem 2rem;
@@ -51,14 +47,27 @@ nav a:hover {
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.3s, color 0.3s, transform 0.3s;
   text-decoration: none;
   display: inline-block;
   min-width: 150px;
   min-height: 48px;
+  box-shadow: 0 2px 8px rgba(255,184,77,0.08);
 }
-.cta-btn:hover {
-  background: #ffb700;
+.cta-btn:hover, .cta-btn:focus {
+  background: #ffb84d;
+  color: #fff;
+  transform: scale(1.05);
+}
+.cta-btn.secondary-btn {
+  background: #fff;
+  color: #1a3d5d;
+  border: 2px solid #ffd700;
+}
+.cta-btn.secondary-btn:hover, .cta-btn.secondary-btn:focus {
+  background: #ffb84d;
+  color: #fff;
+  border-color: #ffb84d;
 }
 .cta-btn-group {
   display: flex;
@@ -67,26 +76,27 @@ nav a:hover {
   margin-bottom: 1.5rem;
   flex-wrap: wrap;
 }
-.cta-btn.secondary-btn {
+section {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s, transform 0.7s;
+  padding: 2rem 1rem;
+}
+section.visible {
+  opacity: 1;
+  transform: none;
+}
+.problems-solutions {
   background: #fff;
-  color: #1a3d5d;
-  border: 2px solid #1a3d5d;
+  border-bottom: 2px solid #ffb84d;
 }
-.cta-btn.secondary-btn:hover,
-.cta-btn.secondary-btn:focus {
-  background: #eaf1f7;
-  color: #1a3d5d;
-  border-color: #ffd700;
-}
-.features {
+.problem-list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 2rem;
-  padding: 3rem 1rem;
-  background: #fff;
+  justify-content: center;
 }
-.feature {
+.problem-card {
   background: #f7f9fa;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.06);
@@ -94,34 +104,96 @@ nav a:hover {
   max-width: 320px;
   flex: 1 1 280px;
   text-align: center;
+  border-left: 6px solid #ffb84d;
+  transition: box-shadow 0.3s, border-color 0.3s;
 }
-.feature h3 {
-  color: #1a3d5d;
-  margin-bottom: 1rem;
+.problem-card:hover {
+  box-shadow: 0 4px 16px rgba(255,184,77,0.15);
+  border-left: 6px solid #ffd700;
 }
-.contact {
-  background: #1a3d5d;
-  color: #fff;
-  padding: 3rem 1rem;
+.why-infinity {
+  background: #f7f9fa;
+  border-top: 2px solid #ffb84d;
+  border-bottom: 2px solid #ffb84d;
   text-align: center;
 }
-.contact h2 {
-  margin-bottom: 1rem;
+.why-infinity ul {
+  list-style: none;
+  padding: 0;
+  max-width: 600px;
+  margin: 1.5rem auto 0 auto;
+  text-align: left;
 }
-.contact form {
+.why-infinity li {
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+}
+.orange-accent {
+  color: #ffb84d;
+  font-size: 1.2em;
+  margin-right: 0.5em;
+}
+.faq {
+  background: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-top: 2px solid #ffb84d;
+}
+.faq-list-compact {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 600px;
+}
+.faq-list-compact li {
+  margin-bottom: 1rem;
+  background: #f7f9fa;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  text-align: left;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+  border-left: 4px solid #ffb84d;
+  transition: box-shadow 0.3s, border-color 0.3s;
+}
+.faq-list-compact li:hover {
+  box-shadow: 0 4px 16px rgba(255,184,77,0.10);
+  border-left: 4px solid #ffd700;
+}
+.faq-list-compact strong {
+  color: #1a3d5d;
+}
+.faq-submit {
+  background: #f7f9fa;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-top: 2px solid #ffb84d;
+}
+.faq-submit form {
   max-width: 400px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
-.contact input, .contact textarea {
-  padding: 0.8rem;
-  border: none;
+.faq-submit input,
+.faq-submit textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
   border-radius: 6px;
+  border: 1px solid #ffd700;
   font-size: 1rem;
+  transition: border-color 0.2s;
 }
-.contact button {
+.faq-submit input:focus,
+.faq-submit textarea:focus {
+  border-color: #ffb84d;
+  outline: none;
+}
+.faq-submit button {
   background: #ffd700;
   color: #1a3d5d;
   border: none;
@@ -130,12 +202,14 @@ nav a:hover {
   font-size: 1.1rem;
   font-weight: bold;
   cursor: pointer;
-  transition: background 0.2s;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
   min-width: 150px;
   min-height: 48px;
 }
-.contact button:hover {
-  background: #ffb700;
+.faq-submit button:hover {
+  background: #ffb84d;
+  color: #fff;
+  transform: scale(1.05);
 }
 footer {
   background: #12263a;
@@ -143,6 +217,7 @@ footer {
   text-align: center;
   padding: 1rem 0;
   font-size: 0.95rem;
+  border-top: 4px solid #ffb84d;
 }
 .skip-link {
   position: absolute;
@@ -170,13 +245,13 @@ a:focus, button:focus, input:focus, textarea:focus {
   outline-offset: 2px;
 }
 @media (max-width: 900px) {
-  .features {
+  .problem-list, .features {
     flex-direction: column;
     align-items: center;
   }
 }
 @media (max-width: 600px) {
-  .feature {
+  .problem-card, .feature {
     margin-bottom: 1.5rem;
     padding: 1.2rem;
   }
@@ -189,68 +264,72 @@ a:focus, button:focus, input:focus, textarea:focus {
     align-items: center;
   }
 }
-.faq {
-  background: #fff;
-  padding: 2rem 1rem;
-  text-align: center;
-}
-.faq-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1.5rem;
-  max-width: 800px;
-  margin: 0 auto;
-}
-.faq .feature {
+.contact {
   background: #f7f9fa;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  padding: 1.5rem 2rem;
-  max-width: 600px;
-  width: 100%;
-  text-align: left;
-}
-.faq-submit {
-  background: #f7f9fa;
-  padding: 2rem 1rem;
-  text-align: center;
-}
-.faq-submit form {
-  max-width: 400px;
-  margin: 0 auto;
-}
-.faq-submit label {
-  display: block;
-  text-align: left;
-  margin-bottom: 0.5rem;
-}
-.faq-submit input,
-.faq-submit textarea {
-  width: 100%;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
-}
-#faq-form-status {
-  margin-top: 1rem;
-}
-section.problems-solutions {
-  background: #fff;
-  padding: 2rem 1rem;
-}
-.problem-list {
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 4px 24px rgba(36,80,122,0.08);
+  max-width: 700px;
+  margin: 2.5rem auto;
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
   justify-content: center;
 }
-.problem-card {
-  background: #f7f9fa;
+
+.contact-form {
+  background: #fff;
+  padding: 2rem 1.5rem;
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-  padding: 2rem;
-  max-width: 320px;
-  flex: 1 1 280px;
-  text-align: center;
+  box-shadow: 0 2px 8px rgba(36,80,122,0.06);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-left: 6px solid #ffb84d;
+}
+
+.contact-form label {
+  font-weight: 600;
+  color: #1a3d5d;
+  margin-bottom: 0.2em;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ffd700;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+  margin-bottom: 0.5rem;
+  background: #f7f9fa;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: #ffb84d;
+  outline: none;
+}
+
+.contact-form button {
+  background: #ffd700;
+  color: #1a3d5d;
+  border: none;
+  border-radius: 30px;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  min-width: 150px;
+  min-height: 48px;
+  margin-top: 0.5rem;
+}
+
+.contact-form button:hover {
+  background: #ffb84d;
+  color: #fff;
+  transform: scale(1.05);
 }
 

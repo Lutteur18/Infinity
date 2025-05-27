@@ -6,60 +6,31 @@
   <title>Infinity Tanks | Water Storage Solutions</title>
   <meta name="description" content="Infinity Tanks offers compact, stylish, and reliable water storage solutions for homes and businesses with limited space.">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css"> <!-- Added this line -->
+  <link rel="stylesheet" href="styles.css">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  <style>
-    @media (max-width: 600px) {
-      .problem-list, .faq-list {
-        flex-direction: column;
-        gap: 1rem;
-      }
-      .problem-card, .feature {
-        max-width: 100%;
-        padding: 1rem;
-      }
-    }
-    .faq-list-compact {
-      list-style: none;
-      padding: 0;
-      margin: 0 auto;
-      max-width: 600px;
-    }
-    .faq-list-compact li {
-      margin-bottom: 1rem;
-      background: #f7f9fa;
-      border-radius: 8px;
-      padding: 1rem 1.5rem;
-      font-size: 1rem;
-      text-align: left;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
-    }
-    .faq-list-compact strong {
-      color: #1a3d5d;
-    }
-    .problems-solutions h2 {
-      text-align: center;
-    }
-  </style>
 </head>
 <body>
   <a href="#main-content" class="skip-link">Skip to main content</a>
   <header>
-    <img src="./Assets/Inverse_Portrait.png" alt="Infinity Tanks Logo" style="max-width:180px; margin-bottom:1rem;" />
+    <img src="./Assets/Inverse_Portrait.png" alt="Infinity Tanks Logo" class="logo" />
     <h1>Infinity Tanks</h1>
     <nav>
       <a href="#problems-solutions">Solutions</a>
       <a href="tanks.html">Tanks</a>
-      <a href="#contact">Contact</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </header>
   <main id="main-content">
     <section class="hero">
       <h2>Space-Saving Water Storage Solutions</h2>
       <p>Compact, durable, and reliable water tanks—perfect for homes and businesses with limited space. Never be caught without water again.</p>
+      <div class="cta-btn-group">
+        <a href="tanks.html" class="cta-btn">View Our Tanks</a>
+        <a href="contact.html" class="cta-btn secondary-btn">Contact Us</a>
+      </div>
     </section>
     <section class="problems-solutions" id="problems-solutions">
-      <h2 style="text-align:center;">Find Your Water Storage Solution</h2>
+      <h2>Find Your Water Storage Solution</h2>
       <div class="problem-list">
         <div class="problem-card">
           <h3>Limited Space?</h3>
@@ -83,59 +54,56 @@
         </div>
       </div>
     </section>
-    <section class="contact" id="contact">
-      <h2>Contact Us</h2>
-      <p>Ready to order or need more info? Fill out the form below and our team will get back to you soon.</p>
-      <form aria-labelledby="contact-heading">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" placeholder="Your Name" required>
-        <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" placeholder="Your Email" required>
-        <label for="message">Your Message</label>
-        <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
-        <button type="submit">Send Message</button>
-        <div id="form-status" aria-live="polite"></div>
-      </form>
+    <section class="why-infinity">
+      <h2>Why Choose Infinity Tanks?</h2>
+      <ul>
+        <li><span class="orange-accent">✔</span> Proudly South African, SABS Approved</li>
+        <li><span class="orange-accent">✔</span> UV-resistant, food-grade polyethylene</li>
+        <li><span class="orange-accent">✔</span> 10-Year Warranty on all tanks</li>
+        <li><span class="orange-accent">✔</span> Slimline, vertical, and decorative options</li>
+        <li><span class="orange-accent">✔</span> Perfect for rainwater harvesting</li>
+        <li><span class="orange-accent">✔</span> Nationwide delivery and installation</li>
+      </ul>
     </section>
     <section class="faq" id="faq">
       <h2>Frequently Asked Questions</h2>
       <ul class="faq-list-compact">
         <li>
           <strong>Can I install a tank if I have a small yard?</strong>
-          <br>Yes! Our compact tanks are designed for tight spaces.
+          Yes! Our compact tanks are designed for tight spaces.
         </li>
         <li>
           <strong>Do you offer installation advice?</strong>
-          <br>Yes, our team will guide you through the process.
+          Yes, our team will guide you through the process.
         </li>
         <li>
           <strong>What sizes are available?</strong>
-          <br>From 500L to 10,000L, including compact and large options.
+          From 500L to 10,000L, including compact and large options.
         </li>
         <li>
           <strong>Are your tanks UV resistant?</strong>
-          <br>Yes, all tanks are made from UV-resistant, food-grade polyethylene.
+          Yes, all tanks are made from UV-resistant, food-grade polyethylene.
         </li>
         <li>
           <strong>Do you deliver and install nationwide?</strong>
-          <br>Yes, we deliver and install across South Africa.
+          Yes, we deliver and install across South Africa.
         </li>
         <li>
           <strong>Can I use your tanks for rainwater harvesting?</strong>
-          <br>Absolutely! All tanks are suitable for rainwater harvesting.
+          Absolutely! All tanks are suitable for rainwater harvesting.
         </li>
       </ul>
     </section>
-    <section class="faq-submit" style="background:#f7f9fa; padding:2rem 1rem; text-align:center;">
+    <section class="faq-submit">
       <h2>Have a Question?</h2>
       <p>Ask your question below and we'll get back to you soon!</p>
-      <form id="faq-form" style="max-width:400px; margin:0 auto;">
-        <label for="faq-name" style="display:block; text-align:left; margin-bottom:0.5rem;">Your Name</label>
-        <input type="text" id="faq-name" name="faq-name" required style="width:100%; padding:0.5rem; margin-bottom:1rem;">
-        <label for="faq-question" style="display:block; text-align:left; margin-bottom:0.5rem;">Your Question</label>
-        <textarea id="faq-question" name="faq-question" rows="3" required style="width:100%; padding:0.5rem; margin-bottom:1rem;"></textarea>
+      <form id="faq-form">
+        <label for="faq-name">Your Name</label>
+        <input type="text" id="faq-name" name="faq-name" required>
+        <label for="faq-question">Your Question</label>
+        <textarea id="faq-question" name="faq-question" rows="3" required></textarea>
         <button type="submit" class="cta-btn">Submit Question</button>
-        <div id="faq-form-status" aria-live="polite" style="margin-top:1rem;"></div>
+        <div id="faq-form-status" aria-live="polite"></div>
       </form>
     </section>
   </main>
@@ -144,12 +112,23 @@
     <nav>
       <a href="index.html">Home</a> |
       <a href="tanks.html">Tanks</a> |
-      <a href="#contact">Contact</a>
+      <a href="contact.html">Contact</a>
     </nav>
   </footer>
   <script src="main.js"></script>
   <script>
-    // Place your additional JavaScript code here
+    // Fade-in animation for sections
+    document.addEventListener('DOMContentLoaded', function() {
+      const sections = document.querySelectorAll('section');
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+      sections.forEach(section => observer.observe(section));
+    });
   </script>
 </body>
 </html>
