@@ -1,18 +1,35 @@
 :root {
-  --primary-color: #2c5282;      /* Deep blue for water */
-  --secondary-color: #4299e1;    /* Light blue for water */
-  --accent-color: #48bb78;       /* Fresh green */
-  --success-color: #48bb78;
-  --warning-color: #ed8936;
-  --error-color: #f56565;
+  --primary-color: #2c5282;
+  --secondary-color: #1a365d;
+  --accent-color: #4a90e2;
   --text-color: #2d3748;
   --text-light: #718096;
   --bg-light: #f7fafc;
-  --bg-dark: #e2e8f0;
+  --bg-dark: #edf2f7;
   --border-color: #e2e8f0;
   --shadow-color: rgba(0, 0, 0, 0.1);
-  --gradient-start: #f7fafc;
-  --gradient-end: #e2e8f0;
+  --white: #ffffff;
+  --heading-color: #1a202c;
+  --success-color: #48bb78;
+  --error-color: #f56565;
+  --warning-color: #ed8936;
+}
+
+/* Typography Scale */
+:root {
+  --font-family: 'Montserrat', sans-serif;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2xl: 2rem;
+  --font-size-3xl: 2.25rem;
+  --font-size-4xl: 3rem;
+  --font-size-5xl: 4rem;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
 }
 
 * {
@@ -137,50 +154,80 @@ section::before {
 }
 
 .solution-card:hover {
-  transform: perspective(1000px) rotateX(5deg) translateY(-5px);
-  box-shadow: 0 8px 12px var(--shadow-color);
-  border-color: var(--secondary-color);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
 
-.solution-card:hover .solution-icon {
-  transform: scale(1.1);
-  background: var(--secondary-color);
-}
-
-.solution-card:hover h3 {
-  color: var(--secondary-color);
+.solution-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, var(--bg-light), var(--bg-dark));
+  opacity: 0.1;
+  z-index: -1;
 }
 
 .solution-icon {
   width: 80px;
   height: 80px;
-  margin: 0 auto 1.5rem;
-  background: var(--primary-color);
-  border-radius: 50%;
+  margin: 0 0 1.5rem 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
-  box-shadow: 0 2px 4px var(--shadow-color);
 }
 
 .solution-icon img {
-  max-width: 50%;
-  height: auto;
-  color: white;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
-.solution-card h3 {
+.solution-content {
+  margin-left: 1rem;
+}
+
+.solution-content h3 {
   color: var(--primary-color);
   margin-bottom: 1rem;
   font-size: 1.5rem;
 }
 
-.solution-card p {
-  color: var(--text-light);
-  line-height: 1.6;
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
+.solution-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.solution-bullets li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+.solution-bullets li::before {
+  content: '✓';
+  color: var(--success-color);
+  margin-right: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.solution-card .cta-btn {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.solution-card .cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .cta-btn {
@@ -196,39 +243,63 @@ section::before {
   position: relative;
   z-index: 1;
   pointer-events: auto;
-}
-
-.cta-btn:hover {
-  transform: translateY(-2px);
-}
-
-.cta-btn:active {
-  transform: translateY(1px);
+  font-size: var(--font-size-lg);
+  min-width: 180px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .cta-btn.primary {
-  background: var(--primary-color);
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
   color: var(--white);
   border: none;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .cta-btn.primary:hover {
-  background: var(--secondary-color);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+}
+
+.cta-btn.primary:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .cta-btn.secondary {
-  background: transparent;
-  border: 2px solid var(--primary-color);
+  background: var(--bg-dark);
   color: var(--primary-color);
+  border: none;
 }
 
 .cta-btn.secondary:hover {
+  background: linear-gradient(135deg, var(--bg-dark), var(--bg-light));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px -3px rgba(0, 0, 0, 0.1);
+}
+
+.cta-btn.secondary:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.cta-btn.tertiary {
+  color: var(--primary-color);
+  background: none;
+  border: 2px solid var(--primary-color);
+}
+
+.cta-btn.tertiary:hover {
   background: var(--primary-color);
   color: var(--white);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 12px -3px rgba(0, 0, 0, 0.1);
+}
+
+.cta-btn.tertiary:active {
+  transform: translateY(1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .cta-btn-group {
@@ -756,8 +827,6 @@ a:focus, button:focus, input:focus, textarea:focus {
   }
   .cta-btn-group {
     flex-direction: column;
-    gap: 0.75rem;
-    align-items: center;
   }
 }
 .contact {
@@ -770,7 +839,6 @@ a:focus, button:focus, input:focus, textarea:focus {
   max-width: 700px;
   margin: 2.5rem auto;
 }
-
 .contact-container {
   position: relative;
   z-index: 2;
@@ -778,48 +846,6 @@ a:focus, button:focus, input:focus, textarea:focus {
   max-width: 500px;
   margin: 0 auto;
 }
-
-.form-group {
-  margin-bottom: 1.5rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: var(--text-color);
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  background: white;
-  transition: border-color 0.2s;
-  cursor: text;
-  -webkit-user-select: text;
-  user-select: text;
-  position: relative;
-  z-index: 3;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  outline: none;
-  border-color: var(--primary-color);
-  box-shadow: 0 0 0 2px rgba(44, 82, 130, 0.2);
-}
-
-.form-group textarea {
-  resize: vertical;
-  min-height: 100px;
-  height: auto;
-}
-
 .contact-form {
   position: relative;
   z-index: 2;
