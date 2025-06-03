@@ -1,10 +1,18 @@
 :root {
-  --primary-color: #1a3d5d;
-  --secondary-color: #ffb84d;
-  --accent-color: #ffd700;
-  --background-color: #f7f9fa;
-  --text-color: #222;
-  --border-color: #ddd;
+  --primary-color: #2c5282;      /* Deep blue for water */
+  --secondary-color: #4299e1;    /* Light blue for water */
+  --accent-color: #48bb78;       /* Fresh green */
+  --success-color: #48bb78;
+  --warning-color: #ed8936;
+  --error-color: #f56565;
+  --text-color: #2d3748;
+  --text-light: #718096;
+  --bg-light: #f7fafc;
+  --bg-dark: #e2e8f0;
+  --border-color: #e2e8f0;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+  --gradient-start: #f7fafc;
+  --gradient-end: #e2e8f0;
 }
 
 * {
@@ -19,12 +27,317 @@ html {
 }
 
 body {
-  font-family: 'Montserrat', Arial, sans-serif;
-  background: var(--background-color);
-  color: var(--text-color);
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: var(--bg-light);
+  overflow-x: hidden;
+}
+
+/* Background animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes waterRipple {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* Add water ripple effect to section backgrounds */
+section {
+  position: relative;
+  overflow: hidden;
+}
+
+section::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 100%
+  );
+  opacity: 0.1;
+  animation: waterRipple 10s infinite;
+  z-index: 0;
+}
+
+
+
+.solutions {
+  padding: 4rem 1rem;
+  border-bottom: 2px solid var(--border-color);
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-light);
+}
+
+.solutions {
+  padding: 4rem 1rem;
+  border-bottom: 2px solid var(--border-color);
+  background: var(--bg-light);
+}
+
+.solutions-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--primary-color);
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: var(--secondary-color);
+  margin: 1rem auto 0;
+  border-radius: 2px;
+}
+
+.solutions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  padding: 0 1rem;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.solution-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px var(--shadow-color);
+  border: 1px solid var(--border-color);
+  transform: perspective(1000px) rotateX(0deg);
+}
+
+.solution-card:hover {
+  transform: perspective(1000px) rotateX(5deg) translateY(-5px);
+  box-shadow: 0 8px 12px var(--shadow-color);
+  border-color: var(--secondary-color);
+}
+
+.solution-card:hover .solution-icon {
+  transform: scale(1.1);
+  background: var(--secondary-color);
+}
+
+.solution-card:hover h3 {
+  color: var(--secondary-color);
+}
+
+.solution-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  background: var(--primary-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+.solution-icon img {
+  max-width: 50%;
+  height: auto;
+  color: white;
+}
+
+.solution-card h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.solution-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.cta-btn {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+  cursor: pointer;
+  margin: 0.5rem;
+}
+
+.cta-btn.primary {
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+}
+
+.cta-btn.primary:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta-btn.secondary {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.cta-btn.secondary:hover {
+  background: var(--primary-color);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cta-btn-group {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .cta-btn-group {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.modal.visible {
+  display: block;
+  opacity: 1;
+}
+
+.modal-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) translateY(-20px);
+  background-color: white;
+  padding: 2rem;
+  width: 90%;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.modal.visible .modal-content {
+  transform: translate(-50%, -50%) translateY(0);
+}
+
+.close {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #666;
+  background: #fff;
+  border-radius: 50%;
+  padding: 0.25rem;
+}
+
+.close:hover {
+  color: #333;
+  background: #f0f0f0;
+}
+
+/* Form styles */
+#quote-form {
+  display: block;
+  width: 100%;
+}
+
+#quote-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: #333;
+}
+
+#quote-form input,
+#quote-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+#quote-form textarea {
+  height: 100px;
+  resize: vertical;
+}
+
+#quote-form button {
+  margin-top: 1rem;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #1a3d5d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+#quote-form button:hover {
+  background-color: #22507a;
+}
+
+#quote-form-status {
+  margin-top: 1rem;
+  color: #1a3d5d;
+  font-weight: 600;
 }
 
 /* Mobile Menu */
@@ -72,12 +385,10 @@ body {
 /* Hero Section */
 .hero {
   position: relative;
-  overflow: hidden;
-  padding: 3rem 1rem 2rem 1rem;
+  padding: 4rem 1rem 2rem 1rem;
   text-align: center;
-  background: #eaf1f7;
-  border-bottom: 4px solid #ffb84d;
-  transition: background 0.5s;
+  border-bottom: 2px solid var(--border-color);
+  overflow: hidden;
 }
 
 .hero-image {
@@ -86,39 +397,56 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  z-index: 0;
 }
 
 .hero-bg {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(0.7);
-}
-
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.3);
+  transform: scale(1.1);
+  transition: transform 0.3s ease-out;
 }
 
 .hero-content {
   position: relative;
   z-index: 1;
-  color: white;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.hero-content h2 {
-  color: #fff;
-  margin-bottom: 1rem;
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-.hero-content p {
-  color: #fff;
-  margin-bottom: 2rem;
+.hero h2 {
+  color: var(--primary-color);
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero p {
+  color: var(--text-color);
+  font-size: 1.25rem;
+  margin-bottom: 0;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .hero h2 {
+    font-size: 2rem;
+  }
+  
+  .hero p {
+    font-size: 1.1rem;
+  }
 }
 
 /* Certifications */
