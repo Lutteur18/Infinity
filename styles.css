@@ -193,6 +193,17 @@ section::before {
   text-align: center;
   cursor: pointer;
   margin: 0.5rem;
+  position: relative;
+  z-index: 1;
+  pointer-events: auto;
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+}
+
+.cta-btn:active {
+  transform: translateY(1px);
 }
 
 .cta-btn.primary {
@@ -750,30 +761,68 @@ a:focus, button:focus, input:focus, textarea:focus {
   }
 }
 .contact {
+  position: relative;
+  z-index: 1;
   background: #f7f9fa;
   padding: 2.5rem 1.5rem 2rem 1.5rem;
   border-radius: 14px;
   box-shadow: 0 4px 24px rgba(36,80,122,0.08);
   max-width: 700px;
   margin: 2.5rem auto;
-  display: flex;
-  justify-content: center;
+}
+
+.contact-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  background: white;
+  transition: border-color 0.2s;
+  cursor: text;
+  -webkit-user-select: text;
+  user-select: text;
+  position: relative;
+  z-index: 3;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(44, 82, 130, 0.2);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+  height: auto;
 }
 
 .contact-form {
-  background: #fff;
-  padding: 2rem 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(36,80,122,0.06);
-  width: 100%;
-  max-width: 400px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  border-left: 6px solid #ffb84d;
-}
-
-.contact-form label {
+  position: relative;
+  z-index: 2;
   font-weight: 600;
   color: #1a3d5d;
   margin-bottom: 0.2em;
@@ -797,24 +846,90 @@ a:focus, button:focus, input:focus, textarea:focus {
   outline: none;
 }
 
+.contact-form {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  background: white;
+  transition: border-color 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
 .contact-form button {
-  background: #ffd700;
-  color: #1a3d5d;
+  background: var(--primary-color);
+  color: white;
   border: none;
-  border-radius: 30px;
-  padding: 1rem;
-  font-size: 1.1rem;
-  font-weight: bold;
+  border-radius: 6px;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s, transform 0.2s;
-  min-width: 150px;
-  min-height: 48px;
-  margin-top: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form button.loading {
+  cursor: not-allowed;
+  opacity: 0.8;
+}
+
+.contact-form button.loading::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid white;
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 .contact-form button:hover {
-  background: #ffb84d;
-  color: #fff;
-  transform: scale(1.05);
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+.contact-form.loading button {
+  opacity: 0.8;
+  cursor: not-allowed;
 }
 

@@ -159,16 +159,27 @@
       </ul>
     </section>
     <section class="faq-submit">
-      <h2>Have a Question?</h2>
-      <p>Ask your question below and we'll get back to you soon!</p>
-      <form id="faq-form">
-        <label for="faq-name">Your Name</label>
-        <input type="text" id="faq-name" name="faq-name" required>
-        <label for="faq-question">Your Question</label>
-        <textarea id="faq-question" name="faq-question" rows="3" required></textarea>
-        <button type="submit" class="cta-btn">Submit Question</button>
-        <div id="faq-form-status" aria-live="polite"></div>
-      </form>
+      <div class="faq-container">
+        <h2>Have a Question?</h2>
+        <p>Ask your question below and we'll get back to you soon!</p>
+        <form id="faq-form">
+          <div class="form-group">
+            <label for="faq-name">Your Name</label>
+            <input type="text" id="faq-name" name="faq-name" required>
+          </div>
+          <div class="form-group">
+            <label for="faq-question">Your Question</label>
+            <textarea id="faq-question" name="faq-question" rows="3" required></textarea>
+          </div>
+          <div class="form-group">
+            <a href="mailto:info@infinitytanks.com" class="cta-btn" style="display: block; width: 100%;">
+              <span>Submit Question</span>
+            </a>
+          </div>
+          <p class="alternative-contact">Or contact us directly at <a href="mailto:info@infinitytanks.com">info@infinitytanks.com</a></p>
+          <div id="faq-form-status" aria-live="polite"></div>
+        </form>
+      </div>
     </section>
   </main>
   <footer>

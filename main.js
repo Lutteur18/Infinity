@@ -80,17 +80,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   });
 
-  // Add loading animation
-  const form = document.querySelector('form');
-  if (form) {
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      this.classList.add('loading');
-      setTimeout(() => {
-        this.classList.remove('loading');
-      }, 2000);
-    });
-  }
+
 
   // Add raindrop animation
   function createRaindrop() {
