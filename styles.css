@@ -492,7 +492,7 @@ section::before {
 }
 
 .product-icon img {
-  max-width: 100px;
+  max-width: 200px;
   height: auto;
 }
 
